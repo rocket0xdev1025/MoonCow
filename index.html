@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MOON COW | $MOONCOW</title>
+  <meta name="description" content="MOON COW is charging to the moon! Pure meme power, cosmic vibes, and unstoppable community energy on Robinhood Chain." />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Outfit:wght@400;500;600;700;800&family=Orbitron:wght@600;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            space: "#070910",
+            navy: "#0c1220",
+            cream: "#fff4d6",
+            milk: "#f8e8c0",
+            mustard: "#e8b84a",
+            gold: "#d4a017",
+            ember: "#ff9f1c",
+            peach: "#e89b6a",
+            horn: "#c4783a",
+          },
+          fontFamily: {
+            display: ['"Bungee"', "cursive"],
+            sans: ['"Outfit"', "system-ui", "sans-serif"],
+            mono: ['"Orbitron"', "monospace"],
+          },
+          boxShadow: {
+            glow: "0 0 40px rgba(232,184,74,0.35)",
+            "glow-lg": "0 0 80px rgba(232,184,74,0.45)",
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    :root { --cow: url("logo.png"); }
+    html, body, a, button, input { cursor: none !important; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: #070910;
+      color: #fff4d6;
+      overflow-x: hidden;
+    }
+    .space-bg {
+      background:
+        linear-gradient(180deg, rgba(7,9,16,0.35) 0%, rgba(7,9,16,0.72) 55%, #070910 100%),
+        url("banner.jpg") center top / cover no-repeat fixed;
+    }
+    .stars {
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, #fff4d6, transparent),
+        radial-gradient(2px 2px at 80px 120px, #e8b84a, transparent),
+        radial-gradient(1px 1px at 160px 60px, #fff, transparent),
+        radial-gradient(2px 2px at 240px 180px, #ff9f1c, transparent),
+        radial-gradient(1px 1px at 320px 40px, #fff4d6, transparent),
+        radial-gradient(1px 1px at 400px 140px, #fff, transparent);
+      background-size: 480px 220px;
+      animation: drift 40s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes drift {
+      from { background-position: 0 0; }
+      to { background-position: 480px 220px; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-16px) rotate(2deg); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 24px rgba(232,184,74,0.35), 0 0 60px rgba(255,159,28,0.15); }
+      50% { box-shadow: 0 0 40px rgba(232,184,74,0.65), 0 0 90px rgba(255,159,28,0.35); }
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 1; }
+    }
+    .float { animation: float 5s ease-in-out infinite; }
+    .glow-ring { animation: pulse-glow 2.8s ease-in-out infinite; }
+    .marquee-track { animation: marquee 22s linear infinite; }
+    .gold-text {
+      background: linear-gradient(180deg, #fff8e7 0%, #e8b84a 48%, #c4783a 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .glass {
+      background: linear-gradient(180deg, rgba(255,244,214,0.08), rgba(12,18,32,0.72));
+      border: 1px solid rgba(232,184,74,0.28);
+      backdrop-filter: blur(16px);
+    }
+    .btn-gold {
+      background: linear-gradient(180deg, #f3d27a 0%, #e8b84a 40%, #c9952a 100%);
+      color: #1a1206;
+      box-shadow: 0 8px 24px rgba(232,184,74,0.35), inset 0 1px 0 rgba(255,255,255,0.4);
+    }
+    .btn-gold:hover { filter: brightness(1.08); transform: translateY(-1px); }
+    .btn-outline {
+      border: 2px solid #e8b84a;
+      color: #fff4d6;
+      background: rgba(7,9,16,0.45);
+    }
+    .btn-outline:hover { background: rgba(232,184,74,0.15); }
+    .step-num {
+      background: linear-gradient(180deg, #f3d27a, #c9952a);
+      color: #1a1206;
+    }
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #070910; }
+    ::-webkit-scrollbar-thumb { background: #d4a017; border-radius: 999px; }
+  </style>
+</head>
+<body class="font-sans space-bg min-h-screen">
+  <div class="stars fixed inset-0 z-0 opacity-70"></div>
+
+  <!-- NAV -->
+  <header class="fixed top-0 inset-x-0 z-50">
+    <nav class="mx-auto max-w-7xl px-4 py-3">
+      <div class="glass flex items-center justify-between rounded-full px-4 py-2 shadow-glow">
+        <a href="#top" class="flex items-center gap-3">
+          <img src="logo.png" alt="MOON COW logo" class="h-12 w-12 rounded-full ring-2 ring-mustard shadow-glow" />
+          <div class="leading-none">
+            <p class="font-display text-lg text-cream tracking-wide">MOON COW</p>
+            <p class="font-mono text-[10px] text-mustard">$MOONCOW</p>
+          </div>
+        </a>
+        <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-milk">
+          <a href="#about" class="hover:text-mustard transition">About</a>
+          <a href="#howto" class="hover:text-mustard transition">How to Buy</a>
+          <a href="#chart" class="hover:text-mustard transition">Chart</a>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="https://t.me" target="_blank" rel="noopener" class="h-10 w-10 rounded-full overflow-hidden ring-2 ring-mustard/40 hover:ring-mustard transition">
+            <img src="tg.png" alt="Telegram" class="h-full w-full object-cover" />
+          </a>
+          <a href="https://x.com/MoonCow_rbh" target="_blank" rel="noopener" class="h-10 w-10 rounded-full bg-cream flex items-center justify-center ring-2 ring-mustard/40 hover:ring-mustard transition p-2">
+            <img src="x.png" alt="X / Twitter" class="h-full w-full object-contain" />
+          </a>
+          <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0x18201887f938e1308d1e7278cceee216fcd5f810" target="_blank" rel="noopener" class="btn-gold hidden sm:inline-flex items-center rounded-full px-5 py-2 font-extrabold text-sm uppercase tracking-wide transition">
+            Buy Now
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="relative z-10 pt-32 pb-16 md:pt-40 md:pb-24">
+    <div class="mx-auto max-w-6xl px-4 text-center">
+      <div class="relative mx-auto mb-8 h-44 w-44 md:h-56 md:w-56">
+        <div class="absolute inset-0 rounded-full bg-mustard/30 blur-3xl"></div>
+        <img src="logo.png" alt="MOON COW" class="relative z-10 h-full w-full rounded-full float glow-ring ring-4 ring-mustard/80" />
+      </div>
+      <p class="font-mono text-mustard tracking-[0.35em] text-xs md:text-sm mb-3">ROBINHOOD CHAIN MEME</p>
+      <h1 class="font-display gold-text text-5xl sm:text-7xl md:text-8xl leading-none drop-shadow-[0_6px_0_#3a2408]">MOON COW</h1>
+      <p class="mt-3 font-mono text-2xl md:text-3xl text-mustard">$MOONCOW</p>
+      <p class="mx-auto mt-6 max-w-2xl text-lg md:text-xl text-milk/90 leading-relaxed">
+        MOON COW is charging to the moon! Pure meme power, cosmic vibes, and unstoppable community energy on Robinhood Chain.
+      </p>
+
+      <!-- CA -->
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <button id="copyCa" type="button" class="glass group flex items-center gap-3 rounded-full px-5 py-3 text-left">
+          <span class="font-mono text-[10px] uppercase tracking-widest text-mustard">CA</span>
+          <span id="caValue" class="font-mono text-sm md:text-base text-cream">0x18201887f938e1308d1e7278cceee216fcd5f810</span>
+          <span id="copyLabel" class="rounded-full bg-mustard/20 px-3 py-1 text-xs font-bold text-mustard group-hover:bg-mustard group-hover:text-navy transition">COPY</span>
+        </button>
+      </div>
+
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0x18201887f938e1308d1e7278cceee216fcd5f810" target="_blank" rel="noopener" class="btn-gold inline-flex items-center gap-2 rounded-full px-8 py-4 text-lg font-extrabold uppercase tracking-wide transition">
+          🚀 Buy Now
+        </a>
+        <a href="https://dexscreener.com/robinhood/0x18201887f938e1308d1e7278cceee216fcd5f810" target="_blank" rel="noopener" class="btn-outline inline-flex items-center gap-2 rounded-full px-8 py-4 text-lg font-extrabold uppercase tracking-wide transition">
+          📈 Chart
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="relative z-10 border-y border-mustard/30 bg-navy/70 overflow-hidden">
+    <div class="marquee-track flex w-max whitespace-nowrap py-3 font-display text-mustard text-lg">
+      <span class="px-8">$MOONCOW • CHARGE TO THE MOON • ROBINHOOD CHAIN • PURE MEME POWER • COSMIC VIBES • UNSTOPPABLE HERD •</span>
+      <span class="px-8">$MOONCOW • CHARGE TO THE MOON • ROBINHOOD CHAIN • PURE MEME POWER • COSMIC VIBES • UNSTOPPABLE HERD •</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="relative z-10 py-20 md:py-28">
+    <div class="mx-auto max-w-6xl px-4 grid md:grid-cols-2 gap-10 items-center">
+      <div class="relative">
+        <img src="banner.jpg" alt="MOON COW banner" class="w-full rounded-3xl ring-2 ring-mustard/40 shadow-glow-lg object-cover min-h-[240px]" />
+        <img src="logo.png" alt="" class="absolute -bottom-8 -right-4 h-28 w-28 rounded-full ring-4 ring-gold shadow-glow float" />
+      </div>
+      <div>
+        <p class="font-mono text-mustard text-xs tracking-[0.3em] uppercase mb-3">The Lore</p>
+        <h2 class="font-display text-4xl md:text-5xl gold-text mb-5">Born on a crater.<br/>Built for the moon.</h2>
+        <p class="text-milk/90 text-lg leading-relaxed mb-4">
+          One cosmic cow. One cream-colored moon. Zero utility promises — just raw herd energy blasting through the Robinhood Chain night sky.
+        </p>
+        <p class="text-milk/80 leading-relaxed">
+          $MOONCOW is the mascot of unstoppable meme power. Strap in, grab a bag, and ride the nebula with the herd.
+        </p>
+        <div class="mt-8 grid grid-cols-3 gap-3">
+          <div class="glass rounded-2xl p-4 text-center">
+            <p class="font-display text-mustard text-xl">MEME</p>
+            <p class="text-xs text-milk/70 mt-1">Pure power</p>
+          </div>
+          <div class="glass rounded-2xl p-4 text-center">
+            <p class="font-display text-mustard text-xl">CHAIN</p>
+            <p class="text-xs text-milk/70 mt-1">Robinhood</p>
+          </div>
+          <div class="glass rounded-2xl p-4 text-center">
+            <p class="font-display text-mustard text-xl">VIBES</p>
+            <p class="text-xs text-milk/70 mt-1">Cosmic</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO BUY -->
+  <section id="howto" class="relative z-10 py-20 md:py-28">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="text-center mb-14">
+        <p class="font-mono text-mustard text-xs tracking-[0.3em] uppercase mb-3">4 Easy Steps</p>
+        <h2 class="font-display text-4xl md:text-6xl gold-text">How to Buy</h2>
+        <p class="mt-4 text-milk/80 max-w-xl mx-auto">Grab $MOONCOW with Robinhood ETH. Four steps. Then we moooo.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <article class="glass rounded-3xl p-6 hover:-translate-y-1 transition">
+          <div class="step-num h-12 w-12 rounded-2xl flex items-center justify-center font-display text-xl mb-5">1</div>
+          <h3 class="font-display text-xl text-cream mb-2">Get a Wallet</h3>
+          <p class="text-milk/80 text-sm leading-relaxed">Install MetaMask or Rabby. Add <span class="text-mustard font-semibold">Robinhood Chain</span> so your wallet can speak cow.</p>
+        </article>
+        <article class="glass rounded-3xl p-6 hover:-translate-y-1 transition">
+          <div class="step-num h-12 w-12 rounded-2xl flex items-center justify-center font-display text-xl mb-5">2</div>
+          <h3 class="font-display text-xl text-cream mb-2">Fuel with ETH</h3>
+          <p class="text-milk/80 text-sm leading-relaxed">Move <span class="text-mustard font-semibold">Robinhood ETH</span> into your wallet — withdraw from Robinhood or bridge ETH over.</p>
+        </article>
+        <article class="glass rounded-3xl p-6 hover:-translate-y-1 transition">
+          <div class="step-num h-12 w-12 rounded-2xl flex items-center justify-center font-display text-xl mb-5">3</div>
+          <h3 class="font-display text-xl text-cream mb-2">Open Uniswap</h3>
+          <p class="text-milk/80 text-sm leading-relaxed">Hit <span class="text-mustard font-semibold">Buy Now</span>, connect your wallet, and switch the network to Robinhood.</p>
+        </article>
+        <article class="glass rounded-3xl p-6 hover:-translate-y-1 transition">
+          <div class="step-num h-12 w-12 rounded-2xl flex items-center justify-center font-display text-xl mb-5">4</div>
+          <h3 class="font-display text-xl text-cream mb-2">Swap for $MOONCOW</h3>
+          <p class="text-milk/80 text-sm leading-relaxed">Paste the CA, swap Robinhood ETH for <span class="text-mustard font-semibold">$MOONCOW</span>, and join the herd to the moon.</p>
+        </article>
+      </div>
+      <div class="mt-10 flex justify-center">
+        <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0x18201887f938e1308d1e7278cceee216fcd5f810" target="_blank" rel="noopener" class="btn-gold inline-flex items-center rounded-full px-8 py-4 text-lg font-extrabold uppercase tracking-wide transition">
+          Buy $MOONCOW Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHART -->
+  <section id="chart" class="relative z-10 py-20 md:py-28">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+        <div>
+          <p class="font-mono text-mustard text-xs tracking-[0.3em] uppercase mb-3">Live Market</p>
+          <h2 class="font-display text-4xl md:text-5xl gold-text">Dexscreener Chart</h2>
+        </div>
+        <a href="https://dexscreener.com/robinhood/0x18201887f938e1308d1e7278cceee216fcd5f810" target="_blank" rel="noopener" class="btn-outline inline-flex items-center rounded-full px-6 py-3 font-bold uppercase tracking-wide transition self-start">
+          Open Chart ↗
+        </a>
+      </div>
+      <div class="glass rounded-3xl overflow-hidden ring-1 ring-mustard/30 shadow-glow">
+        <iframe
+          title="Dexscreener $MOONCOW chart"
+          src="https://dexscreener.com/robinhood/0x18201887f938e1308d1e7278cceee216fcd5f810?embed=1&theme=dark&trades=0&info=0"
+          class="w-full h-[520px] md:h-[640px] bg-navy"
+          allow="clipboard-write"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section class="relative z-10 pb-24">
+    <div class="mx-auto max-w-4xl px-4 text-center">
+      <div class="glass rounded-[2.5rem] px-6 py-14 md:px-12">
+        <img src="logo.png" alt="" class="mx-auto h-20 w-20 rounded-full ring-2 ring-mustard mb-6" />
+        <h2 class="font-display text-3xl md:text-5xl gold-text mb-4">Join the Herd</h2>
+        <p class="text-milk/85 text-lg max-w-xl mx-auto mb-8">
+          Pure meme power. Cosmic vibes. Unstoppable community energy. The cow is charging — don't get left in the crater.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="https://t.me" target="_blank" rel="noopener" class="glass flex items-center gap-3 rounded-full px-5 py-3 hover:ring-1 hover:ring-mustard transition">
+            <img src="tg.png" alt="" class="h-8 w-8 rounded-full" />
+            <span class="font-bold">Telegram</span>
+          </a>
+          <a href="https://x.com/MoonCow_rbh" target="_blank" rel="noopener" class="glass flex items-center gap-3 rounded-full px-5 py-3 hover:ring-1 hover:ring-mustard transition">
+            <img src="x.png" alt="" class="h-8 w-8 rounded-full bg-cream p-1.5" />
+            <span class="font-bold">Twitter / X</span>
+          </a>
+          <a href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0x18201887f938e1308d1e7278cceee216fcd5f810" target="_blank" rel="noopener" class="btn-gold rounded-full px-6 py-3 font-extrabold uppercase">
+            Buy Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="relative z-10 border-t border-mustard/20 py-8 text-center text-sm text-milk/60">
+    <p class="font-display text-mustard mb-2">MOON COW · $MOONCOW</p>
+    <p>$MOONCOW is a meme token on Robinhood Chain. Not financial advice. DYOR. Charge responsibly.</p>
+  </footer>
+
+  <img id="cowCursor" src="logo.png" alt="" class="pointer-events-none fixed z-[90] h-12 w-12 rounded-full -translate-x-1/2 -translate-y-1/2 drop-shadow-[0_0_10px_rgba(232,184,74,0.8)] hidden md:block" />
+
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[80] hidden rounded-full bg-mustard text-navy font-bold px-5 py-2 shadow-glow">
+    CA copied!
+  </div>
+
+  <script>
+    const CA = "0x18201887f938e1308d1e7278cceee216fcd5f810";
+    const btn = document.getElementById("copyCa");
+    const label = document.getElementById("copyLabel");
+    const toast = document.getElementById("toast");
+    const cow = document.getElementById("cowCursor");
+    window.addEventListener("mousemove", (e) => {
+      cow.style.left = e.clientX + "px";
+      cow.style.top = e.clientY + "px";
+    });
+
+    btn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(CA);
+      } catch {
+        const ta = document.createElement("textarea");
+        ta.value = CA;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+      }
+      label.textContent = "COPIED";
+      toast.classList.remove("hidden");
+      setTimeout(() => {
+        label.textContent = "COPY";
+        toast.classList.add("hidden");
+      }, 1600);
+    });
+  </script>
+</body>
+</html>
